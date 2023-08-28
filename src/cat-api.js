@@ -1,9 +1,32 @@
-function fetchBreeds(name) {
-    return fetch(`https://api.thecatapi.com/v1/breeds
-    ?api_key=live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4`).then(res => {
-      if(!res.ok){}
+import Notiflix from 'notiflix';
+import axios from "axios";
+
+axios.defaults.headers.common["x-api-key"] =
+  " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
+
+export function fetchBreeds(name) {
+   fetch(`https://api.thecatapi.com/v1/images/search?
+    limit=10&breed_ids=beng&api_key=
+    live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4`)
+    .then(res => {
+      if (!res.ok) {
+        return Notify.failure('cats is not available');
+      }
+      return res.json()
   })
 }
+console.log(res.json())
+// export function fetchCatByBreed(breedId) { 
+//      fetch(`https://api.thecatapi.com/v1/images/search?
+//     breed_ids=beng&api_key=
+//     live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4`)
+//     .then(res => {
+//       if (!res.ok) {
+//         return Notify.failure('cats is not available');
+//       }
+//       return res.json()
+//   })
+// }
 // export default fetchCountries;
 // import Notiflix from 'notiflix';
 // function fetchCountries(name) {
