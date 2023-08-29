@@ -1,13 +1,13 @@
-// import Notiflix from 'notiflix';
-// import axios from "axios";
+import Notiflix from 'notiflix';
+import axios from "axios";
 
 const API_KEY =
   " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
 
 // const BASE_URL = "https://api.thecatapi.com/v1/images/search";
 
-// axios.defaults.headers.common["x-api-key"] =
-//   " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
+axios.defaults.headers.common["x-api-key"] =
+  " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
 
 const refs = {
   select: document.querySelector('.breed-select'),
