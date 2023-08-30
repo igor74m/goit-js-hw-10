@@ -1,10 +1,13 @@
 import Notiflix from 'notiflix';
 import axios from "axios";
+import SlimSelect from 'slim-select';
+
+
 
 const API_KEY =
   " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
 
-// const BASE_URL = "https://api.thecatapi.com/v1/images/search";
+const BASE_URL = "https://api.thecatapi.com/v1/images/search";
 
 axios.defaults.headers.common["x-api-key"] =
   " live_l11LXxb6iPC2lTFT2hw6tz8kSwkgGwnR149gpObWelRqJvrODqIE7fnJSgs0IZo4";
@@ -14,19 +17,25 @@ const refs = {
   loader: document.querySelector('.loade'),
   error: document.querySelector('.error'),
   catinfo: document.querySelector('.cat-info')
-}
+};
+
+new SlimSelect({
+  // select: '#selectElement'
+   select: document.querySelector('#selectElement')
+});
     
   
-export function fetchBreeds(name) {
+ function fetchBreeds(name) {
   const BASE_URL = "https://api.thecatapi.com/v1/images/search";
   return axios
     .GET(BASE_URL)
-    .then(res => {
-      // if (!res.ok) {
-      //   return Notify.failure('cats is not available');
-      // }
-      // return res.json()
-    }).catch(err => error(err));
+    .then(responce => responce.json())
+    .then(responce => responce.data)
+      if (!res.ok) {
+        return Notify.failure('cats is not available');
+      }
+      return res.json()
+    .catch(err => error(err));
 }
 //  function fetchCatByBreed(breedId) {
 //      fetch(`${BASE_URL}?
@@ -38,4 +47,5 @@ export function fetchBreeds(name) {
 //       return res.json()
 //   })
 // };
+export { fetchBreeds, fetchCatByBreed };
 
